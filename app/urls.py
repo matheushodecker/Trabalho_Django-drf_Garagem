@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import include, path
+from click.utils import R
 from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularRedocView,
@@ -7,7 +8,7 @@ from drf_spectacular.views import (
 )
 from rest_framework.routers import DefaultRouter
 
-from core.views import UserViewSet, AcessorioViewSet, CorViewSet, ModeloViewSet
+from core.views import UserViewSet, AcessorioViewSet, CorViewSet, ModeloViewSet, VeiculoViewSet
 
 router = DefaultRouter()
 
@@ -15,6 +16,7 @@ router.register(r'usuarios', UserViewSet, basename='usuarios')
 router.register(r'acessorios', AcessorioViewSet, basename='acessorios')
 router.register(r'cores', CorViewSet, basename='cores')
 router.register(r'modelos', ModeloViewSet, basename='modelos')
+router.register(r'veiculos', VeiculoViewSet, basename='veiculos')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
